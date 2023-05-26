@@ -3,7 +3,7 @@ import Joi from "Joi";
 
 export const createSimulator = {
   body: {
-    profile_id: Joi.string().required(),
+    profile_id: Joi.string().hex().length(24).required(),
     dateRecorded: Joi.date(),
     cryptocurrency: Joi.string(),
     euros: Joi.number().min(0),
@@ -11,9 +11,7 @@ export const createSimulator = {
     quantity: Joi.number().min(0),
   },
   query: {},
-  params: {
-    profile_id: Joi.string().hex().length(24).required()
-  },
+  params: {},
 }
 
 

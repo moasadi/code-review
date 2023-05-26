@@ -4,13 +4,17 @@ export const createFavorite = {
   body: {
     profile_id: Joi.string().required(),
     name: Joi.string().required(),
-    favorites: Joi.array().items(Joi.string().max(50)).max(3).required(),
+    favorites: Joi.array().items(Joi.string().max(50)).max(3).required()
   },
   query: {},
   params: {},
 }
 
-
+export const getFavorites = {
+  body: {},
+  query: {},
+  params: {},
+};
 
 export const getFavoritesByProfileId = {
   body: {},

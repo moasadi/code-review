@@ -1,10 +1,9 @@
 import express from "express";
-import { getFavorites, getFavoritesByProfileId } from "../controllers/favorite.controller";
-import { getFavorites as vGetFavorites , getFavoritesByProfileId as vGetFavoritesByProfileId } from "../controllers/favorite.controller";
-
+import { getFavorites, getFavoritesByProfileId,createFavorite} from "../controllers/favorite.controller";
+import { getFavorites as vGetFavorites , getFavoritesByProfileId as vGetFavoritesByProfileId ,createFavorite as vCreateFavorite } from "../validators/favorite.validator";
 import { validate } from "../middelwares/inputValidator"
-
 export const router = express.Router();
 
-router.get("/api/favorite",validate(vGetFavorites),getFavorites);
-router.get("/api/favorite/:profile_id",validate(vGetFavoritesByProfileId), getFavoritesByProfileId);
+router.get("/",validate(vGetFavorites),getFavorites);
+router.post("/",validate(vCreateFavorite),createFavorite);
+router.get("/:profile_id",validate(vGetFavoritesByProfileId), getFavoritesByProfileId);

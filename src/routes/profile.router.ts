@@ -6,5 +6,5 @@ import { validate } from "../middelwares/inputValidator"
 
 export const router = express.Router();
 
-router.get("/api/profile",validate(vGetProfiles), getProfiles);
-router.post("/api/profile",validate(vCreateProfile), createProfile);
+router.get("/",validate(vGetProfiles), getProfiles);
+router.post("/",validate(vCreateProfile), createProfile);

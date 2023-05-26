@@ -44,9 +44,6 @@ Welcome to My Project! This project is built with TypeScript and Node.js, and it
 
 5. The server should now be running at `http://localhost:3000`.
 
-## API Documentation
-
-API documentation is available in the Swagger UI. You can access it by navigating to `http://localhost:3000/api-docs` in your browser.
 
 ## Testing
 

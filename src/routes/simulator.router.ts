@@ -9,6 +9,6 @@ app.use(cors());
 
 export const router = express.Router();
 
-router.get("/api/simulator", validate(vGetSimulators), getSimulators);
-router.get("/api/simulator/:profile_id", validate(vGetSimulatorsByProfileId), getSimulatorsByProfileId);
-router.post("/api/simulator/:profile_id", validate(vCreateSimulator), createSimulator);
+router.get("/", validate(vGetSimulators), getSimulators);
+router.get("/:profile_id", validate(vGetSimulatorsByProfileId), getSimulatorsByProfileId);
+router.post("/", validate(vCreateSimulator), createSimulator);

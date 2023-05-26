@@ -4,7 +4,6 @@ import { Profile } from "../models/Profile";
 export const getProfiles = async (req: Request, res: Response) => {
   try {
     const profiles = await Profile.find().lean();
-    console.log(profiles);
     res.json({ profiles });
   } catch (error) {
     console.error(error);

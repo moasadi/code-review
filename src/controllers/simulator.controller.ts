@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
 import { Simulator } from "../models/Simulator";
+import { Profile } from "../models/Profile";
 
 export const getSimulators = async (req: Request, res: Response) => {
   try {
     const simulators = await Simulator.find().lean();
-    console.log(simulators);
     res.json({ simulators });
   } catch (error) {
     console.error(error);
@@ -25,13 +25,13 @@ export const getSimulatorsByProfileId = async (req: Request, res: Response) => {
 
 export const createSimulator = async (req: Request, res: Response) => {
   try {
-    const { profile_id } = req.params;
-    const newData = {
-      ...req.body,
-      profile_id,
-    };
-    console.log(newData);
-    const simulator = await Simulator.create(newData);
+    const {profile_id} = req.body;
+    const profile=await Profile.findById(profile_id);
+    if(!profile){
+      return res.status(404).json({ error: "profile not found"})
+    }
+
+    const simulator = await Simulator.create(req.body);
     res.json(simulator);
   } catch (error) {
     console.error(error);
